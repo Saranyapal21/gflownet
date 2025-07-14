@@ -18,4 +18,9 @@
 
 """
 
-__all__ = ["base", "grid", "aptamers"]
+__all__ = ["base", "grid", "aptamers", "frozenlake"]
+
+from .base import GFlowNetEnv
+from .grid import Grid
+# from .aptamers import AptamerEnv
+from .frozenlake import FrozenLake

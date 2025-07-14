@@ -1,0 +1,10 @@
+# config/env/frozenlake.yaml
+defaults:
+  - base
+
+_target_: gflownet.envs.frozenlake.FrozenLake
+id: frozenlake
+
+# Gym parameters
+map_name: "4x4"
+is_slippery: false
