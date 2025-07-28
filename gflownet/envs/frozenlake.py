@@ -20,26 +20,25 @@ from torchtyping import TensorType
 from gflownet.envs.base import GFlowNetEnv
 from gflownet.utils.common import tlong
 
+
 class FrozenLake(GFlowNetEnv):
-    def __init__(self,
-                 map_name: str = "4x4",
-                 is_slippery: bool = False,
-                 **kwargs):
-        # underlying Gym env
-        self.env = gym.make("FrozenLake-v1",
-                            map_name=map_name,
-                            is_slippery=is_slippery)
-        
+    def __init__(self, map_name: str = "4x4", is_slippery: bool = False, **kwargs):
+
+        self.env = gym.make("FrozenLake-v1", map_name=map_name, is_slippery=is_slippery)        
         self.source = 0
 
-        # EOS pseudo‑action
+        # EOS => pseudo‑action
         self.eos = 4
+
         super().__init__(**kwargs)
+
 
     # ─────── required API ─────── #
     def get_action_space(self):
         # Use singleton‐tuple actions so base.get_logprobs works
         return [(0,), (1,), (2,), (3,), (self.eos,)]
+    
+
 
     def reset(self, idx: Optional[int] = None):
         """
