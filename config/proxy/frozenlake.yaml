@@ -1,0 +1,4 @@
+# config/proxy/frozenlake.yaml
+_target_: gflownet.proxy.frozenlake.FrozenLakeProxy
+map_name: "4x4"
+eps: 1e-6
